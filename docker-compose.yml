@@ -1,0 +1,18 @@
+version: '3'
+
+volumes:
+  data:
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'webchat'
+      MYSQL_DATABASE: 'webchat'
+      MYSQL_USER: 'webchat'
+      MYSQL_PASSWORD: 'webchat'
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - 3306:3306
