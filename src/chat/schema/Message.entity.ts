@@ -5,7 +5,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Chat {
+export class Message {
 
   @PrimaryColumn({ type: 'uuid', length: 120 })
   id: string;

@@ -4,15 +4,31 @@ volumes:
   data:
 
 services:
-  db:
+  
+  mariadb:
     image: mariadb
+    container_name: mariadb
     restart: always
+    ports:
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: 'webchat'
       MYSQL_DATABASE: 'webchat'
       MYSQL_USER: 'webchat'
       MYSQL_PASSWORD: 'webchat'
     volumes:
-      - ./db:/var/lib/mysql
-    ports:
-      - 3306:3306
+      - ./db/mariadb:/var/lib/mysql
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    ports: 
+      - 25672:25672 # (erlang) communication between the nodes and CLI tool
+      - 15672:15672 # communication with the web management API 
+    volumes:
+      - ./db/rabbitmq:/var/lib/rabbitmq/
+    environment:
+      - RABBITMQ_DEFAULT_USER = 'webchat'
+      - RABBITMQ_DEFAULT_PASS = 'webchat'
+

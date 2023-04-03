@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ConnectionOptions } from 'typeorm';
+import { AppGateway } from './app.gateway';
 
 @Module({
   imports: [
@@ -23,10 +24,11 @@ import { ConnectionOptions } from 'typeorm';
         } as ConnectionOptions;
       },
     }),
+    
     ChatModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [AppGateway],
 })
 
 export class AppModule {
