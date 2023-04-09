@@ -6,9 +6,26 @@ export class ChatDto {
   id: string;
 
   @IsString()
-  email: string;
+  name: string;
   
+  @IsString()
+  email: string;
+
   @IsString()
   text: string;
   
+}
+
+export class PayloadDto {
+  @IsString()
+  id: string;
+
+  @IsString()
+  name: string;
+
+  @IsString()
+  email: string;
+
+  @IsString()
+  text: string;
 }

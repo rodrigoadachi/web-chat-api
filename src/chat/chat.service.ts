@@ -14,6 +14,7 @@ export class ChatService {
   async createMessage(dto: ChatDto): Promise<Message> {
     let chat = new Message();
     chat.id = uuidv4();
+    chat.name = dto.name;
     chat.email = dto.email;
     chat.text = dto.text;
     chat.createdAt = new Date();

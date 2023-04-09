@@ -11,11 +11,11 @@ export class ChatController {
     return this.chatService.findAll();
   }
 
-  @Post()
-  async Create(
-    @Body() body: ChatDto,
-  ): Promise<ChatDto> {
-    return this.chatService.createMessage(body);
-  }
+  // @Post()
+  // async Create(
+  //   @Body() body: ChatDto,
+  // ): Promise<ChatDto> {
+  //   return this.chatService.createMessage(body);
+  // }
 
 }
